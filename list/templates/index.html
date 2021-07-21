@@ -1,16 +1,90 @@
 <!DOCTYPE html>
-{% load static %}
 <html>
 <head>
     <title>
        ФБМИ
     </title>
-    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+      .start {
+    display: grid;
+    grid-template-areas:
+      'inqueue summoned'
+      'inqueue entered';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    font-size: 40px;
+
+}
+
+table{
+    width: 100%;
+    table-layout: fixed;
+}
+
+.inqueue {
+    grid-area: inqueue;
+}
+
+.summoned {
+    grid-area: summoned;
+}
+
+.entered {
+    grid-area: entered;
+}
+
+.inqueue td{
+    font-size: 60px;
+}
+
+.entered td{
+    font-size: 60px;
+}
+
+
+.summoned td{
+    font-size: 200px;
+    animation: blink 800ms alternate infinite;
+}
+
+@keyframes blink {
+    from {
+        color: black;
+    }
+    to {
+        color: rgb(255, 0, 0);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .start {
+        display: grid;
+        grid-template-areas:
+          'summoned'
+          'inqueue'
+          'entered';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        font-size: 40px;
+
+    }
+
+    .inqueue{
+        text-align: left;
+    }
+
+    .summoned td{
+        font-size: 100px;
+        animation: blink 800ms alternate infinite;
+    }
+
+}
+    </style>
 </head>
 <body style="text-align:center;" id="body">
     <p class="result"></p>
-    <div class="start"> 
+    <div class="start">
       <div class="inqueue">
         <table style="text-align:center;">
             <tr><th>В очереди</th></tr>
@@ -41,13 +115,13 @@
 </body>
 
 <script>
-    function sendJSON() {      
+    function sendJSON() {
 
       let result = document.querySelector('.result');
       let xhr = new XMLHttpRequest();
       let url = "https://fbme-online-queue.herokuapp.com/api/queue";
       xhr.open("GET", url, true);
-     
+
       xhr.setRequestHeader("Content-Type", "application/json");
 
       xhr.onreadystatechange = function () {
@@ -64,7 +138,7 @@
 
     sendJSON();
 
-    //let timerId = setInterval(() => sendJSON(), 5000);
+    let timerId = setInterval(() => sendJSON(), 5000);
 
     
 
