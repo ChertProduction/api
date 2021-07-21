@@ -1,0 +1,47 @@
+.start {
+    display: grid;
+    grid-template-areas:
+      'inqueue summoned'
+      'inqueue entered';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    font-size: 40px;
+    
+}
+  
+table{
+    width: 100%;
+}
+
+.inqueue {
+    grid-area: inqueue;
+}
+  
+.summoned {
+    grid-area: summoned;
+}
+  
+.entered {
+    grid-area: entered;
+}
+
+.inqueue td{
+    font-size: 100px;
+}
+  
+
+.summoned td{
+    font-size: 200px;
+    animation: blink 800ms alternate infinite;
+
+}
+
+@keyframes blink {
+    from {
+        color: black;
+    }
+    to {
+        color: rgb(255, 0, 0);
+    }
+}
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>
+       ФБМИ
+    </title>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body style="text-align:center;" id="body">
+    <p class="result"></p>
+    <div class="start"> 
+      <div class="inqueue">
+        <table style="text-align:center;">
+            <tr><th>В очереди</th></tr>
+            {% for i in inqueue %}
+              <tr><td>{{ i.queue_number_static }}</td></tr>
+            {% endfor %}
+        </table>
+      </div>
+      <div class="summoned">
+        <table style="text-align:left;">
+            <tr><th>Вызвали</th></tr>
+            <tr></tr>
+            {% for i in summoned %}
+              <td>{{ i.queue_number_static }}</td>
+            {% endfor %}
+            </tr>
+        </table>
+      </div>
+      <div class="entered">
+        <table style="text-align:left;">
+            <tr><th>В приемной</th></tr>
+            {% for i in entered %}
+              <tr><td>{{ i.queue_number_static }}</td></tr>
+            {% endfor %}
+        </table>
+      </div>
+    </div>
+</body>
+
+<script>
+    function sendJSON() {      
+
+      let result = document.querySelector('.result');
+      let xhr = new XMLHttpRequest();
+      let url = "http://127.0.0.1:8000/api/queue";
+      xhr.open("GET", url, true);
+     
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          result.innerHTML = this.responseText;
+        }
+      }
+
+      xhr.send();
+
+    }
+
+    document.querySelector('.start').remove();
+
+    sendJSON();
+
+    //let timerId = setInterval(() => sendJSON(), 5000);
+
+    
+
+ </script>
+  
+</html>
