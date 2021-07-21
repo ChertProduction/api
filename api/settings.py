@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^o)9h10iy%eh&xj8ke6f9%%*#r+ftk&a#^uhra48#jm-u8^sbf'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['fbme-online-queue.herokuapp.com']
 
