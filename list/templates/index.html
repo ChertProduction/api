@@ -12,44 +12,38 @@
       .start {
           display: flex !important;
           flex-direction: row !important;
-            grid-template-areas:
+            /*grid-template-areas:
               'inqueue summoned'
               'inqueue entered';
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 2fr 1fr;
-            font-size: 40px;
-
+            font-size: 40px;*/
 }
 
 table{
     width: 100%;
-    table-layout: fixed;
+    /*table-layout: fixed;*/
 }
 
 .inqueue {
-    grid-area: inqueue;
-    height: 50vh;
-    font-size: 60px;
+    /*grid-area: inqueue;*/
+    height: 40vh;
 }
-
 .summoned {
-    grid-area: summoned;
-    height: 50vh;
+    /*grid-area: summoned;*/
+    height: 40vh;
 }
-
 .entered {
-    grid-area: entered;
-    height: 50vh;
-    font-size: 60px;
+    /*grid-area: entered;*/
+    height: 40vh;
 }
-
-.inqueue td{
+/*.inqueue td{
     font-size: 60px;
 }
 
 .entered td{
     font-size: 60px;
-}
+}*/
 
 
 .summoned td{
@@ -69,15 +63,13 @@ table{
 @media screen and (max-width: 800px) {
     .start {
         display: flex !important;
-        flex-direction: row !important;
-        grid-template-areas:
+        flex-direction: column !important;
+        /*grid-template-areas:
           'summoned'
           'inqueue'
           'entered';
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        font-size: 40px;
-
+        grid-template-rows: 1fr;*/
     }
 
     .inqueue{
@@ -85,7 +77,6 @@ table{
     }
 
     .summoned{
-        font-size: 100px;
         animation: blink 800ms alternate infinite;
     }
 
@@ -94,50 +85,22 @@ table{
 </head>
 <body style="text-align:center;" id="body">
     <p class="result"></p>
-    <!--div class="start">
-      <div class="inqueue">
-        <table style="text-align:center;">
-            <tr><th>В очереди</th></tr>
-            {% for i in inqueue %}
-              <tr><td>{{ i.queue_number_static }}</td></tr>
-            {% endfor %}
-        </table>
-      </div>
-      <div class="summoned">
-        <table style="text-align:left;">
-            <tr><th>Вызвали</th></tr>
-            <tr></tr>
-            {% for i in summoned %}
-              <td>{{ i.queue_number_static }}</td>
-            {% endfor %}
-            </tr>
-        </table>
-      </div>
-      <div class="entered">
-        <table style="text-align:left;">
-            <tr><th>В приемной</th></tr>
-            {% for i in entered %}
-              <tr><td>{{ i.queue_number_static }}</td></tr>
-            {% endfor %}
-        </table>
-      </div>
-    </div-->
     <div class="start">
         <div class="inqueue col-lg-4 col-xs-12">
-            <p>В очереди</p>
-            <p>{% for i in inqueue %}
+            <p style="font-size: 40px">В очереди</p>
+            <p style="font-size: 100px">{% for i in inqueue %}
                 {{ i.queue_number_static }}
                 {% endfor %}</p>
         </div>
         <div class="summoned col-lg-4 col-xs-12">
-            <p>Вызвали</p>
-            <p>{% for i in summoned %}
+            <p style="font-size: 40px">Вызвали</p>
+            <p style="font-size: 100px">{% for i in summoned %}
                 {{ i.queue_number_static }}
                 {% endfor %}</p>
         </div>
         <div class="entered col-lg-4 col-xs-12">
-            <p>В приемной</p>
-            <p>{% for i in entered %}
+            <p style="font-size: 40px">В приемной</p>
+            <p style="font-size: 100px">{% for i in entered %}
                 {{ i.queue_number_static }}
                 {% endfor %}</p>
         </div>
