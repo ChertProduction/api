@@ -59,7 +59,8 @@ table{
 
 @media screen and (max-width: 800px) {
     .start {
-        display: grid;
+        display: flex;
+        flex-direction: row;
         grid-template-areas:
           'summoned'
           'inqueue'
@@ -84,7 +85,7 @@ table{
 </head>
 <body style="text-align:center;" id="body">
     <p class="result"></p>
-    <div class="start">
+    <!--div class="start">
       <div class="inqueue">
         <table style="text-align:center;">
             <tr><th>В очереди</th></tr>
@@ -111,6 +112,26 @@ table{
             {% endfor %}
         </table>
       </div>
+    </div-->
+    <div class="start">
+        <div class="inqueue">
+            <p>В очереди</p>
+            <p>{% for i in inqueue %}
+                <tr><td>{{ i.queue_number_static }}</td></tr>
+                {% endfor %}</p>
+        </div>
+        <div class="summoned">
+            <p>Вызвали</p>
+            <p>{% for i in summoned %}
+                {{ i.queue_number_static }}
+                {% endfor %}</p>
+        </div>
+        <div class="entered">
+            <p>В приемной</p>
+            <p>{% for i in entered %}
+                {{ i.queue_number_static }}
+                {% endfor %}</p>
+        </div>
     </div>
 </body>
 
