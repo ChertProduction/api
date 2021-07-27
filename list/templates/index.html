@@ -7,13 +7,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <style>
       .start {
-    display: grid;
-    grid-template-areas:
-      'inqueue summoned'
-      'inqueue entered';
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 1fr;
-    font-size: 40px;
+          display: flex !important;
+          flex-direction: row !important;
+            grid-template-areas:
+              'inqueue summoned'
+              'inqueue entered';
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 2fr 1fr;
+            font-size: 40px;
 
 }
 
@@ -59,8 +60,8 @@ table{
 
 @media screen and (max-width: 800px) {
     .start {
-        display: flex;
-        flex-direction: row;
+        display: flex !important;
+        flex-direction: row !important;
         grid-template-areas:
           'summoned'
           'inqueue'
