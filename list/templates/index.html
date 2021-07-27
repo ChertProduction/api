@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>
        ФБМИ
     </title>
@@ -9,6 +12,7 @@
       .start {
           display: flex !important;
           flex-direction: row !important;
+          height: 100vh;
             grid-template-areas:
               'inqueue summoned'
               'inqueue entered';
@@ -115,19 +119,19 @@ table{
       </div>
     </div-->
     <div class="start">
-        <div class="inqueue">
+        <div class="inqueue col-lg-4">
             <p>В очереди</p>
             <p>{% for i in inqueue %}
                 {{ i.queue_number_static }}
                 {% endfor %}</p>
         </div>
-        <div class="summoned">
+        <div class="summoned col-lg-4">
             <p>Вызвали</p>
             <p>{% for i in summoned %}
                 {{ i.queue_number_static }}
                 {% endfor %}</p>
         </div>
-        <div class="entered">
+        <div class="entered col-lg-4">
             <p>В приемной</p>
             <p>{% for i in entered %}
                 {{ i.queue_number_static }}
