@@ -12,7 +12,6 @@
       .start {
           display: flex !important;
           flex-direction: row !important;
-          height: 100vh;
             grid-template-areas:
               'inqueue summoned'
               'inqueue entered';
@@ -29,14 +28,19 @@ table{
 
 .inqueue {
     grid-area: inqueue;
+    height: 50vh;
+    font-size: 60px;
 }
 
 .summoned {
     grid-area: summoned;
+    height: 50vh;
 }
 
 .entered {
     grid-area: entered;
+    height: 50vh;
+    font-size: 60px;
 }
 
 .inqueue td{
@@ -80,7 +84,7 @@ table{
         text-align: left;
     }
 
-    .summoned td{
+    .summoned{
         font-size: 100px;
         animation: blink 800ms alternate infinite;
     }
@@ -119,19 +123,19 @@ table{
       </div>
     </div-->
     <div class="start">
-        <div class="inqueue col-lg-4">
+        <div class="inqueue col-lg-4 col-xs-12">
             <p>В очереди</p>
             <p>{% for i in inqueue %}
                 {{ i.queue_number_static }}
                 {% endfor %}</p>
         </div>
-        <div class="summoned col-lg-4">
+        <div class="summoned col-lg-4 col-xs-12">
             <p>Вызвали</p>
             <p>{% for i in summoned %}
                 {{ i.queue_number_static }}
                 {% endfor %}</p>
         </div>
-        <div class="entered col-lg-4">
+        <div class="entered col-lg-4 col-xs-12">
             <p>В приемной</p>
             <p>{% for i in entered %}
                 {{ i.queue_number_static }}
